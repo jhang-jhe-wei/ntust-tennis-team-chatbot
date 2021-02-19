@@ -6,6 +6,22 @@ class ChatbotController < ApplicationController
     @uri = URI.decode(lotify.get_auth_link("state"))
   end
 
+
+  def sign_up
+    @user = User.new
+    @token = lotify.get_token(params["code"])
+    response = lotify.send(@token, message: "恭喜您成為台科大網球隊的訂閱者，之後將會有訊息傳達給您，請鼻要封鎖偶; (T＿T);")
+  end
+
+  def user_setup
+    data = params["data"].split(":")
+    @user = @current_user || User.new(line_id: params[:source_user_id])
+    @user.student_id = data[0]
+    @user.name = data[1]
+    @user.token = data[2] if data[2].present?
+    @user.save
+    render 'chatbot/profile'
+  end
   def auth_line_id
     @current_user = User.find_by line_id: params[:source_user_id]
     render "chatbot/subscribe" unless @current_user

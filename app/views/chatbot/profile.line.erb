@@ -1,0 +1,93 @@
+<%= raw ({
+    type: "flex",
+    altText: "訂閱請求",
+    contents:
+    {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "text",
+            "text": "個人資料",
+            "size": "20px",
+            "color": "#ffffff",
+            "align": "start",
+            "gravity": "center",
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "設定",
+            "weight": "bold",
+            "color": "#B2DEF8",
+            "size": "20px",
+            "align": "end",
+            "offsetEnd": "15px",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": liff_path(path: sign_up_path)
+            }
+          }
+        ]
+      },
+      {
+        "type": "separator",
+        "margin": "10px",
+        "color": "#ffffff"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "contents": [
+          {
+            "type": "text",
+            "text": "姓名：",
+            "color": "#ffffff",
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "#{@user.name}",
+            "align": "start",
+            "color": "#ffffff",
+            "offsetStart": "10px"
+          }
+        ],
+        "paddingTop": "20px"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "contents": [
+          {
+            "type": "text",
+            "text": "學號：",
+            "color": "#ffffff",
+            "flex": 0
+          },
+          {
+            "type": "text",
+            "text": "#{@user.student_id}",
+            "color": "#ffffff",
+            "offsetStart": "10px"
+          }
+        ],
+        "paddingTop": "10px"
+      }
+    ]
+  },
+  "styles": {
+    "body": {
+      "backgroundColor": "#1E2532"
+    }
+  }
+}
+        }).to_json %>
