@@ -2,10 +2,21 @@ class ChatbotController < ApplicationController
   before_action :auth_line_id, except: [:notify, :sign_up, :user_setup]
   before_action :debug_info
 
+  def notify
+    @uri = URI.decode(lotify.get_auth_link("state"))
+  end
 
   def auth_line_id
     @current_user = User.find_by line_id: params[:source_user_id]
     render "chatbot/subscribe" unless @current_user
+  end
+
+  def lotify
+    lotify = Lotify::Client.new(
+      client_id: ENV["LINE_NOTIFY_CHANNEL_ID"],
+      client_secret: ENV["LINE_NOTIFY_CHANNEL_SECRET"],
+      redirect_uri: sign_up_url,
+    )
   end
 
   def debug_info
