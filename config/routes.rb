@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root to: "todos#index"
   get 'notify',to: 'chatbot#notify',as: 'notify'
   get 'sign_up',to: 'chatbot#sign_up',as: 'sign_up'
+  get '個人資料',to: 'chatbot#profile'
   get '個人資料:*data',to: 'chatbot#user_setup'
 end

@@ -6,6 +6,9 @@ class ChatbotController < ApplicationController
     @uri = URI.decode(lotify.get_auth_link("state"))
   end
 
+  def profile
+    @user = @current_user
+  end
 
   def sign_up
     @user = User.new
