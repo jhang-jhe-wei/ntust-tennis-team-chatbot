@@ -10,7 +10,7 @@ class ChatbotController < ApplicationController
   end
 
   def profile
-    @user = @current_user
+    @user = current_user
   end
 
   def sign_up
@@ -28,9 +28,12 @@ class ChatbotController < ApplicationController
     @user.save
     render 'chatbot/profile'
   end
+  def current_user
+    User.find_by line_id: params[:source_user_id]
+  end
+
   def auth_line_id
-    @current_user = User.find_by line_id: params[:source_user_id]
-    render "chatbot/subscribe" unless @current_user
+    render "chatbot/subscribe" unless current_user
   end
 
   def lotify
