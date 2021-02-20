@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get '個人資料:*data',to: 'chatbot#user_setup'
   # 個人資料 
   get '個人資料',to: 'chatbot#profile'
+  #開發中
+  get '(*other)',to: 'chatbot#development'
 end
