@@ -2,6 +2,9 @@ class ChatbotController < ApplicationController
   before_action :auth_line_id, except: [:notify, :sign_up, :user_setup]
   before_action :debug_info
 
+  def subscribe
+  end
+
   def notify
     @uri = URI.decode(lotify.get_auth_link("state"))
   end
