@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root to: "todos#index"
   #setting
   get 'follow',to: 'chatbot#subscribe'
+  #liff_entry
+  get 'liff_entry', to: 'liff#entry'
+  get 'liff_entry/:base64', to: 'liff#entry'
+  post 'liff_route', to: 'liff#route'
   get 'notify',to: 'chatbot#notify',as: 'notify'
   get 'sign_up',to: 'chatbot#sign_up',as: 'sign_up'
   get '個人資料',to: 'chatbot#profile'
