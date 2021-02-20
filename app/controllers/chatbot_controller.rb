@@ -21,12 +21,12 @@ class ChatbotController < ApplicationController
 
   def user_setup
     data = params["data"].split(":")
-    @user = @current_user || User.new(line_id: params[:source_user_id])
+    @user = current_user || User.new(line_id: params[:source_user_id])
     @user.student_id = data[0]
     @user.name = data[1]
-    @user.token = data[2] if data[2].present?
+    @user.token = data[2] if data[2]
     @user.save
-    render 'chatbot/profile'
+    render "chatbot/profile"
   end
   def current_user
     User.find_by line_id: params[:source_user_id]
