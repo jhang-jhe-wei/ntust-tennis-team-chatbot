@@ -4,7 +4,7 @@
       horizontal_box do
         text "🍔", flex: 0, action: message_action("/")
         text "Todos", weight: "bold", margin: "sm"
-        text "new", align: "end", action: uri_action(liff_path(path: new_todo_path)), color: "#0000ee"
+        text "new", align: "end", action: uri_action(liff_path(path: new_todo_path),liff_size: :full), color: "#0000ee"
       end
       separator
       if @todos.present?

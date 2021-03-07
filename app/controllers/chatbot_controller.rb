@@ -14,9 +14,9 @@ class ChatbotController < ApplicationController
   end
 
   def sign_up
-    @user = User.new
+    @user = current_user || User.new
     @token = lotify.get_token(params["code"])
-    response = lotify.send(@token, message: "恭喜您成為台科大網球隊的訂閱者，之後將會有訊息傳達給您，請鼻要封鎖偶; (T＿T);")
+    response = lotify.send(@token, message: "恭喜您成為台科大網球隊的訂閱者，之後將會有訊息傳達給您，請鼻要封鎖偶; (T＿T);") if @token
   end
 
   def user_setup
@@ -28,6 +28,13 @@ class ChatbotController < ApplicationController
     @user.save
     render "chatbot/profile"
   end
+
+  def course
+  end
+
+  def development
+  end
+
   def current_user
     User.find_by line_id: params[:source_user_id]
   end
@@ -44,6 +51,9 @@ class ChatbotController < ApplicationController
     )
   end
 
+  def test
+  end
+  
   def debug_info
     puts ""
     puts "=== kamigo debug info start ==="

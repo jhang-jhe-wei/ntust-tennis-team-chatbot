@@ -1,0 +1,114 @@
+<%= raw ({
+    type: "flex",
+    altText: "訂閱請求",
+    contents: {
+        "type": "bubble",
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "margin": "md",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "個人資料",
+                            "size": "20px",
+                            "color": "#ffffff",
+                            "align": "start",
+                            "gravity": "center",
+                            "weight": "bold"
+                        },
+                    ]
+                },
+                {
+                    "type": "separator",
+                    "margin": "10px",
+                    "color": "#ffffff"
+                },
+                {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "姓名：",
+                            "color": "#ffffff",
+                            "flex": 0
+                        },
+                        {
+                            "type": "text",
+                            "text": "a",
+                            "align": "start",
+                            "color": "#ffffff",
+                            "offsetStart": "10px"
+                        }
+                    ],
+                    "paddingTop": "20px"
+                },
+                {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                        {
+                            "type": "text",
+                            "text": "學號：",
+                            "color": "#ffffff",
+                            "flex": 0
+                        },
+                        {
+                            "type": "text",
+                            "text": "b",
+                            "color": "#ffffff",
+                            "offsetStart": "10px"
+                        }
+                    ],
+                    "paddingTop": "10px"
+                },
+                {
+                    "type": "separator",
+                    "margin": "10px",
+                    "color": "#ffffff"
+                }
+            ]
+        },
+        "styles": {
+            "body": {
+                "backgroundColor": "#1E2532"
+            }
+        },
+        "footer": {
+            "type": "box",
+            "layout": "horizontal",
+            "backgroundColor": "#1E2532",
+            "contents": [
+                {
+                    "type": "button",
+                    "action": {
+                        "type": "postback",
+                        "label": "正確",
+                        "data": "test",
+                    },
+                    "color": "#1E2532",
+                    "margin": "none",
+                    "height": "sm",
+                    "style": "primary"
+                },
+                {
+                    "type": "button",
+                    "action": {
+                        "type": "message",
+                        "label": "錯誤",
+                        "text": "個人資料"
+                    },
+                    "color": "#1E2532",
+                    "margin": "none",
+                    "height": "sm",
+                    "style": "primary"
+                }
+            ]
+        }
+    }
+}).to_json%>

@@ -1,0 +1,78 @@
+<% flex={
+    type: "flex",
+    altText: "訂閱請求",
+    contents:
+    {
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "text",
+            "text": "我要請假",
+            "size": "20px",
+            "color": "#ffffff",
+            "align": "start",
+            "gravity": "center",
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "新增",
+            "weight": "bold",
+            "color": "#B2DEF8",
+            "size": "20px",
+            "align": "end",
+            "offsetEnd": "15px",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": liff_path(path: new_rest_path)
+            }
+          }
+        ]
+      },
+      {
+        "type": "separator",
+        "margin": "10px",
+        "color": "#ffffff"
+      },
+    ]
+  },
+  "styles": {
+    "body": {
+      "backgroundColor": "#1E2532"
+    }
+  }
+}
+        } %>
+<% @rests.each do |rest|
+  flex[:contents][:body][:contents].insert(2,{
+        "type": "box",
+        "layout": "baseline",
+        "contents": [
+          {
+            "type": "text",
+            "text": rest.rest_date,
+            "color": "#ffffff",
+            "flex": 0,
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": rest.content,
+            "align": "start",
+            "color": "#ffffff",
+            "offsetStart": "10px"
+          }
+        ],
+        "paddingTop": "20px"
+      })
+end %>
+<%= raw flex.to_json%>

@@ -62,3 +62,5 @@ gem "dotenv-rails", "~> 2.7"
 gem "httparty", "~> 0.18.1"
 
 gem "lotify", "~> 0.3.0"
+
+gem "capistrano", "~> 3.15"
