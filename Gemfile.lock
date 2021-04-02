@@ -252,6 +252,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
+  capistrano-bundler
   capistrano-passenger
   capistrano-rails
   capistrano-rvm
