@@ -28,10 +28,7 @@ append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 set :passenger_restart_with_touch, true
 # Default value for default_env is {}
-set :default_env, {
-   PATH: '$HOME/.npm-packages/bin/:$PATH',
-   NODE_ENVIRONMENT: 'production'
-}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
